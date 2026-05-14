@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE Cleaning Services | Ireland's Professional Cleaning</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts: Outfit for Headings, Inter for Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <!-- Swiper Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5722', // Vibrant Orange
+                        primaryDark: '#E64A19',
+                        dark: '#212121',
+                        muted: '#757575',
+                        light: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #212121; }
+        .font-heading { font-family: 'Outfit', sans-serif; }
+        
+        /* Paint Stroke Effect */
+        .paint-stroke {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.9;
+        }
+
+        .hero-section {
+            background-image: url('./assets/hero_portrait.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .floating-card {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .orange-dot::before {
+            content: '•';
+            color: #FF5722;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .btn-orange {
+            background-color: #FF5722;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-orange:hover {
+            background-color: #E64A19;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3);
+        }
+
+        /* Diagonal background for CTA */
+        .cta-diagonal {
+            background: linear-gradient(115deg, #FF5722 0%, #FF5722 60%, transparent 60%);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden w-full">
+
+    <!-- Header -->
+    <header class="bg-white py-4 px-4 sm:px-6 fixed top-0 left-0 w-full z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo Section -->
+            <a href="#home" class="flex items-center gap-2 shrink-0">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 bg-primary rounded-full flex items-center justify-center text-white">
+                    <i class="fa-solid fa-leaf text-sm sm:text-lg"></i>
+                </div>
+                <span class="text-lg sm:text-xl font-heading font-black text-dark uppercase tracking-tighter">SE <span class="text-primary">Cleaning</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-8 font-bold text-[13px] uppercase tracking-wider text-dark/70">
+                <a href="#home" class="text-primary">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#services" class="hover:text-primary transition-colors">Services</a>
+                <a href="#gallery" class="hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </nav>
+
+            <!-- Action Buttons & Hamburger -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="tel:+353852475054" class="hidden lg:flex items-center gap-2 text-dark font-bold text-xs mr-2 hover:text-primary transition-colors">
+                    <i class="fa-solid fa-phone text-primary"></i> +353 852 475 054
+                </a>
+                <a href="#contact" class="hidden sm:block lg:block btn-orange px-4 sm:px-6 py-2 sm:py-2.5 rounded-sm font-heading font-bold text-[11px] sm:text-[13px] uppercase tracking-widest shadow-lg shadow-primary/20 shrink-0">
+                    Book Now
+                </a>
+                <!-- Mobile Toggle Button -->
+                <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-dark text-2xl focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-dark z-[100] translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="flex flex-col h-full p-10">
+            <div class="flex justify-between items-center mb-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                        <i class="fa-solid fa-leaf text-base"></i>
+                    </div>
+                    <span class="text-xl font-heading font-black text-white uppercase tracking-tighter">SE <span class="text-primary">Cleaning</span></span>
+                </div>
+                <button id="close-menu" class="text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <nav class="flex flex-col gap-8">
+                <a href="#home" class="mobile-link text-3xl font-heading font-black text-white hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="mobile-link text-3xl font-heading font-black text-white hover:text-primary transition-colors">About</a>
+                <a href="#services" class="mobile-link text-3xl font-heading font-black text-white hover:text-primary transition-colors">Services</a>
+                <a href="#gallery" class="mobile-link text-3xl font-heading font-black text-white hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact" class="mobile-link text-3xl font-heading font-black text-white hover:text-primary transition-colors">Contact</a>
+            </nav>
+
+            <div class="mt-auto space-y-6">
+                <div class="text-white/40 font-bold text-xs uppercase tracking-widest">Get In Touch</div>
+                <a href="tel:+353852475054" class="block text-white text-lg font-bold hover:text-primary transition-colors">+353 852 475 054</a>
+                <a href="#contact" class="mobile-link btn-orange inline-block px-10 py-4 rounded-sm font-heading font-bold text-[13px] uppercase tracking-widest text-center w-full">
+                    Book Order Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-24 min-h-screen flex items-center bg-gray-50 overflow-hidden">
+        <!-- Paint Stroke Background -->
+        <div class="absolute -top-20 -right-20 w-[600px] h-[600px] bg-primary rounded-full opacity-10 blur-3xl"></div>
+        <div class="absolute top-20 right-0 w-[400px] h-[100px] bg-primary rotate-12 opacity-80 rounded-l-full hidden lg:block"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center relative z-10 w-full">
+            <div class="space-y-8">
+                <div class="flex items-center gap-2 text-primary font-black text-[15px] uppercase tracking-[0.3em]">
+                    <span class="w-8 h-[2px] bg-primary"></span> Maintenance
+                </div>
+                <h1 class="text-5xl md:text-7xl font-heading font-black text-dark leading-none">
+                    Quick Cleaning <br> of the Apartment
+                </h1>
+                <p class="text-muted text-xl max-w-md font-medium leading-relaxed">
+                    Professional cleaning services for your home or office. We ensure a spotless space so you can focus on what matters most.
+                </p>
+                <div class="pt-4">
+                    <a href="#about" class="bg-dark text-white px-10 py-4 font-heading font-bold text-[13px] uppercase tracking-widest hover:bg-primary transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image Wrapper -->
+            <div class="relative flex justify-center items-center">
+                <div class="absolute inset-0 bg-primary/10 rounded-full scale-110 blur-2xl"></div>
+                <img src="./assets/hero_portrait.png" alt="Cleaning Expert" class="relative z-10 w-full max-w-md drop-shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="about" class="py-40 bg-white px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="grid grid-cols-2 gap-6 relative">
+                <div class="pt-20">
+                    <img src="./assets/trust_hero.png" class="w-full rounded-sm shadow-xl grayscale-[50%] hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div>
+                    <img src="./assets/gallery_kitchen.png" class="w-full aspect-[4/5] object-cover rounded-sm shadow-xl grayscale-[50%] hover:grayscale-0 transition-all duration-700">
+                </div>
+                <!-- Decorative Paint -->
+                <div class="absolute -top-10 -left-10 w-20 h-20 border-t-4 border-l-4 border-primary/20"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="flex items-center gap-2 text-primary font-black text-[15px] uppercase tracking-[0.3em]">
+                    <span class="w-8 h-[2px] bg-primary"></span> Our Benefits
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-black text-dark leading-tight">
+                    Don't Bother Yourself <br> with Home Cleaning
+                </h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-3 h-3 bg-primary rounded-full mt-2 shrink-0"></div>
+                        <div>
+                            <h4 class="font-heading font-bold text-dark text-xl">Performers are Selected and Trained</h4>
+                            <p class="text-muted text-base leading-relaxed mt-2">Every team member undergoes rigorous background checks and professional training protocols.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-3 h-3 bg-primary rounded-full mt-2 shrink-0"></div>
+                        <div>
+                            <h4 class="font-heading font-bold text-dark text-xl">Cleaners are Monitored, Including Reviews</h4>
+                            <p class="text-muted text-base leading-relaxed mt-2">We maintain a high quality of service by monitoring every clean and listening to your feedback.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <a href="#contact" class="bg-dark text-white px-10 py-4 font-heading font-bold text-[13px] uppercase tracking-widest hover:bg-primary transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h4 class="text-primary font-black uppercase tracking-widest text-[15px] mb-4">Our Services</h4>
+            <h2 class="text-4xl font-heading font-black text-dark mb-20">What are We Cleaning</h2>
+            
+            <!-- Swiper Container with Outside Navigation -->
+            <div class="relative px-4 lg:px-16">
+                <div class="swiper services-swiper pb-20 overflow-visible">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-500 group text-left h-full">
+                                <div class="text-primary text-4xl mb-8 group-hover:scale-110 transition-transform"><i class="fa-solid fa-house-chimney"></i></div>
+                                <h4 class="text-xl font-heading font-bold text-dark mb-4 uppercase tracking-tighter">Standard Cleaning</h4>
+                                <p class="text-muted text-base leading-relaxed">Perfect for regular maintenance, ensuring your home stays fresh and tidy week after week.</p>
+                                <a href="#" class="inline-block mt-8 text-primary font-bold text-[15px] uppercase tracking-widest border-b border-primary/20 pb-1">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-500 group text-left h-full">
+                                <div class="text-primary text-4xl mb-8 group-hover:scale-110 transition-transform"><i class="fa-solid fa-truck-moving"></i></div>
+                                <h4 class="text-xl font-heading font-bold text-dark mb-4 uppercase tracking-tighter">Moving-related Cleaning</h4>
+                                <p class="text-muted text-base leading-relaxed">Specialized deep cleaning for move-ins or move-outs to ensure properties are spotless for new occupants.</p>
+                                <a href="#" class="inline-block mt-8 text-primary font-bold text-[15px] uppercase tracking-widest border-b border-primary/20 pb-1">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-500 group text-left h-full">
+                                <div class="text-primary text-4xl mb-8 group-hover:scale-110 transition-transform"><i class="fa-solid fa-soap"></i></div>
+                                <h4 class="text-xl font-heading font-bold text-dark mb-4 uppercase tracking-tighter">Deep Clean</h4>
+                                <p class="text-muted text-base leading-relaxed">A comprehensive, top-to-bottom thorough cleaning targeting hidden dirt and neglected areas.</p>
+                                <a href="#" class="inline-block mt-8 text-primary font-bold text-[15px] uppercase tracking-widest border-b border-primary/20 pb-1">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-500 group text-left h-full">
+                                <div class="text-primary text-4xl mb-8 group-hover:scale-110 transition-transform"><i class="fa-solid fa-broom"></i></div>
+                                <h4 class="text-xl font-heading font-bold text-dark mb-4 uppercase tracking-tighter">Window Cleaning</h4>
+                                <p class="text-muted text-base leading-relaxed">Crystal clear results for your windows, mirrors, and glass surfaces inside and out.</p>
+                                <a href="#" class="inline-block mt-8 text-primary font-bold text-[15px] uppercase tracking-widest border-b border-primary/20 pb-1">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-500 group text-left h-full">
+                                <div class="text-primary text-4xl mb-8 group-hover:scale-110 transition-transform"><i class="fa-solid fa-rug"></i></div>
+                                <h4 class="text-xl font-heading font-bold text-dark mb-4 uppercase tracking-tighter">Carpet Cleaning</h4>
+                                <p class="text-muted text-base leading-relaxed">Professional steam cleaning and stain removal for long-lasting freshness in your rugs.</p>
+                                <a href="#" class="inline-block mt-8 text-primary font-bold text-[15px] uppercase tracking-widest border-b border-primary/20 pb-1">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Swiper Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team CTA Section -->
+    <section class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2">
+            <!-- Orange Side -->
+            <div class="bg-primary p-20 lg:p-32 text-white relative">
+                <div class="absolute top-10 left-10 text-8xl font-black opacity-10 select-none">SE</div>
+                <div class="relative z-10 space-y-8">
+                    <div class="flex items-center gap-2 text-white font-black text-[15px] uppercase tracking-[0.3em]">
+                        <span class="w-8 h-[2px] bg-white"></span> SE Cleaning Services
+                    </div>
+                    <h2 class="text-5xl font-heading font-black leading-tight">Become Part of <br> Our Team</h2>
+                    <p class="text-white/80 font-medium leading-relaxed max-w-sm">
+                        Join Ireland's fastest-growing cleaning service. Flexible schedules and competitive pay for dedicated professionals.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#" class="bg-white text-primary px-10 py-4 font-heading font-bold text-[13px] uppercase tracking-widest hover:bg-dark hover:text-white transition-all">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Side -->
+            <div class="relative hidden lg:block">
+                <img src="./assets/hero_team.png" class="w-full h-full object-cover grayscale">
+                <div class="absolute inset-0 bg-primary/20"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Floating Form Section -->
+    <section id="contact" class="py-40 bg-white relative">
+        <!-- Abstract Orange Background Paint -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 hidden lg:block"></div>
+        <div class="absolute bottom-20 left-0 w-1/4 h-64 bg-primary rotate-12 opacity-10 rounded-r-full"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-12">
+                <div class="space-y-6 text-center lg:text-left">
+                    <h4 class="text-primary font-black uppercase tracking-widest text-[15px]">How we work</h4>
+                    <h2 class="text-5xl font-heading font-black text-dark tracking-tighter">Our 4-Step Process</h2>
+                    <p class="text-muted max-w-md mx-auto lg:mx-0 leading-relaxed">Simple, transparent, and efficient steps to a cleaner space.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="space-y-4">
+                        <h5 class="text-primary font-black text-2xl font-heading">01.</h5>
+                        <h6 class="font-bold text-dark text-base uppercase tracking-widest">Inspection</h6>
+                        <p class="text-[13px] text-muted leading-relaxed">We assess your space to identify priority areas.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h5 class="text-primary font-black text-2xl font-heading">02.</h5>
+                        <h6 class="font-bold text-dark text-base uppercase tracking-widest">Plan</h6>
+                        <p class="text-[13px] text-muted leading-relaxed">Custom cleaning schedule tailored to your needs.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h5 class="text-primary font-black text-2xl font-heading">03.</h5>
+                        <h6 class="font-bold text-dark text-base uppercase tracking-widest">Execute</h6>
+                        <p class="text-[13px] text-muted leading-relaxed">Our professionals deliver the clean with care.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h5 class="text-primary font-black text-2xl font-heading">04.</h5>
+                        <h6 class="font-bold text-dark text-base uppercase tracking-widest">Review</h6>
+                        <p class="text-[13px] text-muted leading-relaxed">Final walk-through for 100% satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Contact Form -->
+            <div class="relative">
+                <div class="bg-white floating-card p-12 relative z-10 border-t-8 border-primary">
+                    <h3 class="text-3xl font-heading font-black text-dark mb-10">Get In Touch</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <input type="text" placeholder="Your Name *" required class="bg-gray-50 border-b border-gray-200 p-4 outline-none focus:border-primary text-base w-full transition-all">
+                            <input type="email" placeholder="Your Email *" required class="bg-gray-50 border-b border-gray-200 p-4 outline-none focus:border-primary text-base w-full transition-all">
+                        </div>
+                        <input type="text" placeholder="Website" class="bg-gray-50 border-b border-gray-200 p-4 outline-none focus:border-primary text-base w-full transition-all">
+                        <textarea placeholder="Your comment *" rows="4" class="bg-gray-50 border-b border-gray-200 p-4 outline-none focus:border-primary text-base w-full transition-all"></textarea>
+                        
+                        <div class="flex items-center justify-between pt-6">
+                            <button type="submit" class="bg-dark text-white px-12 py-4 font-heading font-bold text-[13px] uppercase tracking-widest hover:bg-primary transition-all">Send</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success -->
+                    <div id="successMessage" class="hidden text-center py-20 space-y-4">
+                        <div class="text-5xl text-primary"><i class="fa-solid fa-circle-check"></i></div>
+                        <h4 class="text-2xl font-heading font-black">Thank You!</h4>
+                        <p class="text-muted text-base">We'll get back to you shortly.</p>
+                        <button onclick="location.reload()" class="text-primary font-bold text-xs underline">Send another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/5">
+                <!-- Column 1: About -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-leaf text-base"></i>
+                        </div>
+                        <span class="text-xl font-heading font-black text-white uppercase tracking-tighter">SE <span class="text-primary">Cleaning</span></span>
+                    </div>
+                    <p class="text-white/40 text-[12px] leading-relaxed max-w-xs">
+                        Professional cleaning services across Ireland. We are dedicated to providing the highest standards of cleanliness for your home and office.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="space-y-8 lg:pl-10">
+                    <h4 class="font-heading font-bold text-base uppercase tracking-widest text-white">Quick Links</h4>
+                    <ul class="space-y-4 text-[12px] font-medium text-white/40">
+                        <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition-colors">Our Benefits</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Our Services</a></li>
+                        <li><a href="#gallery" class="hover:text-primary transition-colors">Work Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="space-y-8">
+                    <h4 class="font-heading font-bold text-base uppercase tracking-widest text-white">Our Services</h4>
+                    <ul class="space-y-4 text-[12px] font-medium text-white/40">
+                        <li><a href="#services" class="hover:text-primary transition-colors">Standard Cleaning</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Moving-related Cleaning</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Deep Clean</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="space-y-8">
+                    <h4 class="font-heading font-bold text-base uppercase tracking-widest text-white">Contact Us</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-primary mt-1"></i>
+                            <span class="text-[12px] text-white/40 leading-relaxed">Dublin City Center, <br>Ireland</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <a href="tel:+353852475054" class="text-[12px] text-white/40 hover:text-primary transition-colors">+353 852 475 054</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span class="text-[12px] text-white/40">info@secleaning.ie</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[12px] uppercase tracking-widest text-white/20 font-medium">
+                    © 2025 SE Cleaning Services. All Rights Reserved.
+                </p>
+                <div class="flex gap-8 text-[12px] font-bold uppercase tracking-widest text-white/30">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form handling
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('successMessage');
+            if(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
+                });
+            }
+            
+            // Fancybox
+            Fancybox.bind("[data-fancybox]", {});
+
+            // Swiper Slider Initialization
+            new Swiper(".services-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+
+            // Mobile Menu Logic
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuToggle && mobileMenu && closeMenu) {
+                console.log("Mobile menu elements found");
+                
+                const openMenu = () => {
+                    console.log("Opening menu");
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const hideMenu = () => {
+                    console.log("Closing menu");
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = '';
+                };
+
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openMenu();
+                });
+                
+                closeMenu.addEventListener('click', hideMenu);
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', hideMenu);
+                });
+
+                // Close on outside click
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenu.contains(e.target) && !mobileMenu.classList.contains('translate-x-full')) {
+                        hideMenu();
+                    }
+                });
+            } else {
+                console.error("Mobile menu elements NOT found:", {menuToggle, mobileMenu, closeMenu});
+            }
+        });
+    </script>
+</body>
+</html>
